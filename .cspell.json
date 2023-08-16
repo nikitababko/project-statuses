@@ -5,6 +5,7 @@
   "ignoreWords": [
     "devkit",
     "subdir",
+    "nikitababko",
     "commitlint"
   ],
   "ignorePaths": [

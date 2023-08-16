@@ -1,0 +1,14 @@
+@use "sass:map";
+
+$colors: (
+  'green-light': #13CE66,
+  'green-dark': #2EA52C,
+  'black': #222222,
+  'white': #FFFFFF,
+  'red': #ED1543,
+  'grey-light': #F4F7FD,
+  'grey-dark': #CDD0D1
+);
+
+$border-radius: 4px;
+
