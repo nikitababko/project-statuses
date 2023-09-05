@@ -1,0 +1,7 @@
+<div class="content">
+  <content-status [someProjectHasError]="someProjectHasError"></content-status>
+
+  <ng-container *ngFor="let project of projects; trackBy: trackBy">
+    <row-item [item]="project"/>
+  </ng-container>
+</div>

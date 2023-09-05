@@ -1,10 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
+import { ContentComponent } from './components/content/content.component';
+import { RowItemComponent } from './components/row-item/row-item.component';
+import { ContentStatusComponent } from './components/content-status/content-status.component';
+import { IconComponent } from './components/icon/icon.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    ContentComponent,
+    RowItemComponent,
+    ContentStatusComponent,
+    IconComponent,
+  ],
   imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],

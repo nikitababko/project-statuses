@@ -1,0 +1,39 @@
+@use "sass:map";
+@import "../../../styles/variables";
+
+
+.row-item {
+  display: flex;
+  align-items: center;
+  column-gap: 28px;
+  width: 418px;
+  height: 78px;
+  padding-left: 17px;
+  background-color: map.get($colors, 'white');
+  border-radius: $border-radius;
+  border: 1px solid map.get($colors, 'grey-dark');
+
+  &__icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33px;
+    height: 33px;
+    border-radius: $border-radius;
+  }
+
+  &__icon-wrapper_success {
+    background-color: map.get($colors, 'green-light');
+  }
+
+  &__icon-wrapper_error {
+    background-color: map.get($colors, 'red-light');
+  }
+
+  &__text {
+    font-size: 32px;
+    font-weight: 400;
+  }
+}
+
+

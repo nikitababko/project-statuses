@@ -1,0 +1,9 @@
+@use "sass:map";
+
+@import "../styles/variables";
+
+.app-root {
+  width: 100vw;
+  height: 100vh;
+  background-color: map.get($colors, 'grey-light');
+}

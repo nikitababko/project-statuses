@@ -1,0 +1,24 @@
+@use "sass:map";
+@import "../../../styles/variables";
+
+
+.content__status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 418px;
+  height: 78px;
+  border-radius: $border-radius;
+
+  &_success {
+    background-color: map.get($colors, 'green-light');
+    border: 1px solid map.get($colors, 'green-dark');
+  }
+
+  &_error {
+    background-color: map.get($colors, 'red-light');
+    border: 1px solid map.get($colors, 'red-dark');
+  }
+}
+
+

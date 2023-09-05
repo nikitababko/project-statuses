@@ -1,0 +1,13 @@
+<div class="row-item">
+  <div
+    [ngClass]="getContentClass()">
+    <icon [name]="getIconName()" [size]="{
+      width: 23,
+      height: 26,
+    }"/>
+  </div>
+
+  <p class="row-item__text">{{item?.name}}</p>
+</div>
+
+
