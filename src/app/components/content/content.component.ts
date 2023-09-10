@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { projects } from './content.data';
 import { ProjectType } from './content.types';
 
@@ -10,6 +11,8 @@ import { ProjectType } from './content.types';
 export class ContentComponent implements OnInit {
   projects: ProjectType[] = projects;
 
+  isLoading = true;
+
   someProjectHasError = true;
 
   /* eslint-disable class-methods-use-this */
@@ -18,6 +21,8 @@ export class ContentComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isLoading = true;
+
     const newArr = this.projects.map((project) => fetch(project.url).then((data) => ({
       name: project.name,
       url: project.url,
@@ -29,6 +34,9 @@ export class ContentComponent implements OnInit {
         this.someProjectHasError = data.some((project) => project.status === 400);
         this.projects = data;
       })
-      .catch((e) => console.error('Get projects use fetch', e));
+      .catch((e) => console.error('Get projects use fetch', e))
+      .finally(() => {
+        this.isLoading = false;
+      });
   }
 }

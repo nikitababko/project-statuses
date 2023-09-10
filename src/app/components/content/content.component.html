@@ -1,4 +1,6 @@
-<div class="content">
+<loader *ngIf="isLoading"></loader>
+
+<div *ngIf="!isLoading" class="content">
   <content-status [someProjectHasError]="someProjectHasError"></content-status>
 
   <ng-container *ngFor="let project of projects; trackBy: trackBy">
