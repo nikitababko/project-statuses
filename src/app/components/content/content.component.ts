@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { projects } from './content.data';
 import { ProjectType } from './content.types';
 
 @Component({
@@ -9,32 +8,38 @@ import { ProjectType } from './content.types';
   styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit {
-  projects: ProjectType[] = projects;
+  projects: ProjectType[] | null = null;
 
   isLoading = true;
+
+  resStatus = 200;
 
   someProjectHasError = true;
 
   /* eslint-disable class-methods-use-this */
   trackBy(index: number, item: ProjectType) {
-    return item.name;
+    return item.friendly_name;
   }
 
   ngOnInit() {
     this.isLoading = true;
 
-    const newArr = this.projects.map((project) => fetch(project.url).then((data) => ({
-      name: project.name,
-      url: project.url,
-      status: data.status,
-    })));
-
-    Promise.all(newArr)
-      .then((data) => {
-        this.someProjectHasError = data.some((project) => project.status === 400);
-        this.projects = data;
+    fetch('https://api.uptimerobot.com/v2/getMonitors?api_key=ur2323626-cc18c4bc97af9d6baf0ec0ab', {
+      method: 'POST',
+    })
+      .then(async (data) => {
+        this.resStatus = data.status;
+        return data.json();
       })
-      .catch((e) => console.error('Get projects use fetch', e))
+      .then((data) => {
+        this.someProjectHasError = data.monitors.some(
+          (project: ProjectType) => project.status !== 2,
+        );
+        this.projects = data.monitors;
+      })
+      .catch((error) => {
+        console.error(error);
+      })
       .finally(() => {
         this.isLoading = false;
       });

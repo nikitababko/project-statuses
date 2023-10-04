@@ -13,7 +13,7 @@ export class RowItemComponent {
 
   getContentClass() {
     if (isNotNull<ProjectType>(this.item)) {
-      if (this.item.status === 200) {
+      if (this.item.status === 2) {
         return ['row-item__icon-wrapper', 'row-item__icon-wrapper_success'];
       }
 
@@ -25,7 +25,7 @@ export class RowItemComponent {
 
   getIconName() {
     if (isNotNull(this.item)) {
-      if (this.item.status === 200) {
+      if (this.item.status === 2) {
         return 'check-mark';
       }
 

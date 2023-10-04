@@ -1,13 +1,18 @@
 @use "sass:map";
 @import "../../../styles/variables";
 
+:host {
+  width: 100%;
+}
 
 .content__status {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 418px;
+  column-gap: 20px;
+  width: 100%;
   height: 78px;
+  padding: 0 15px;
   border-radius: $border-radius;
 
   &_success {
@@ -18,6 +23,10 @@
   &_error {
     background-color: map.get($colors, 'red-light');
     border: 1px solid map.get($colors, 'red-dark');
+  }
+
+  p {
+    font-size: 26px;
   }
 }
 

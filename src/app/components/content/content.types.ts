@@ -1,5 +1,5 @@
 export type ProjectType = {
-  name: string;
+  friendly_name: string;
   url: string;
   status: number;
 };

@@ -8,6 +8,8 @@ import { Component, Input } from '@angular/core';
 export class ContentStatusComponent {
   @Input() someProjectHasError = true;
 
+  @Input() rateLimitExceeded = true;
+
   getContentClass() {
     const classArray = ['content__status'];
 
